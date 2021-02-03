@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>CoronaVirus Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+  </head>
+
+  <body>
+  	<div class="container">
+  		<div class="container">
+  			<h1 style="text-align:center">Corona Virus Tracker Portal</h1>
+  		</div>
+  		<div class="container" style="margin:10px;background-color:gray;">
+  			<div class="card " style="width: 18rem;background-color:gray;">
+			  <div class="card-body">
+			    <h5 class="card-title">Corona Virus Cases</h5>
+			    <p class="card-text">Total Cases till now.</p>
+			    <h3 th:text="${totalReportedCases}"></h3>
+			  </div>
+			</div>
+  		</div>
+	  	<div class="container">
+	  		<table class="table table-striped table-hover table-bordered table-primary">
+		      <tr>
+		        <th>State</th>
+		        <th>Country</th>
+		        <th>Total CoronaVirusCases</th>
+		        <th>New CoronaVirusCases</th>
+		      </tr>
+		      <tr th:each="location : ${locationStats}">
+		        <td th:text="${location.state}"></td>
+		        <td th:text="${location.country}"></td>
+		        <td th:text="${location.latestTotalCases}"></td>
+		        <td th:text="${location.newCases}"></td>
+		      </tr>
+		    </table>
+	  	</div>
+  	</div>
+    
+    
+  
+  
+  </body>
+
+</html>
